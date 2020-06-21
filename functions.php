@@ -115,6 +115,19 @@ function orfeo_change_defaults( $wp_customize ) {
 add_action( 'customize_register', 'orfeo_change_defaults', 99 );
 
 /**
+ * Add a video as home background title.
+ *
+ * @since 1.0.7
+ */
+function orfeo_big_title_video_background() {
+	?>
+	<div id="video_overlays" style="background-color:rgba(51, 51, 51, 0.30196078431372547);z-index:-1;position:absolute;float:left;width:100%;height:100%"></div>
+	<video class="header-filter" autoplay="" muted="" loop="" style="z-index:-2;max-width:none"><source src="https://remotepal.me/wp-content/uploads/2020/06/coverr-a-girl-is-working-on-her-pc-there-are-flowers-on-the-table-4282.mp4" type="video/mp4"></video>
+	<?php
+}
+add_action( 'hestia_after_big_title_section_content_hook', 'orfeo_big_title_video_background' );
+
+/**
  * Add a second button in Big Title section
  *
  * @since 1.0.0
